@@ -33,15 +33,14 @@ public class AuthController {
 
     @PostMapping("/Login")
     public ResponseEntity<UserDto> login(@RequestBody CredentialsDto credentialsDto) {
-        UserDto user = userService.login(credentialsDto);
-        user.setToken(userAuthProvider.createToken(user.getLogin()));
-        return ResponseEntity.ok(user); 
+        UserDto user = userService.login(credentialsDto); // Verifica que el login funcione correctamente
+        user.setToken(userAuthProvider.createToken(user.getLogin())); // Solo se debe hacer si el login es válido
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> register(@RequestBody SignUpDto signUpDto) {
-        UserDto user = userService.register(signUpDto);
-        user.setToken(userAuthProvider.createToken(user.getLogin()));
+        UserDto user = userService.register(signUpDto);  // Solo registrar el usuario
         return ResponseEntity.created(URI.create("/users/" + user.getId()))
                 .body(user);
     }

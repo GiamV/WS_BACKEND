@@ -36,6 +36,7 @@ public class UserService {
         return userMapper.toUserDto(user);
     }
     
+    
     public UserDto login(CredentialsDto credentialsDto) {
         User user = userRepository.findByLogin(credentialsDto.getLogin())
             .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));

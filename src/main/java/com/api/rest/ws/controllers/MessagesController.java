@@ -14,5 +14,10 @@ public class MessagesController {
 	    return ResponseEntity.ok(Arrays.asList("first", "second"));
 	}
 	
+	@GetMapping("/prueba")
+	public ResponseEntity<List<String>> prueba() {
+	    return ResponseEntity.ok(Arrays.asList("first", "second"));
+	}
+	
 
 }

@@ -23,23 +23,22 @@ import lombok.RequiredArgsConstructor;
 @Component
 @Configuration
 @EnableWebSecurity
+
 public class JwtAuthFilter extends OncePerRequestFilter {
-	
-	
-	   private final UserAuthProvider userAuthProvider;
 
-	    @Autowired  // Usar @Autowired aquí no es necesario si estás usando inyección por constructor
-	    public JwtAuthFilter(UserAuthProvider userAuthProvider) {
-	        this.userAuthProvider = userAuthProvider;
-	    }
+    private final UserAuthProvider userAuthProvider;
 
-
+    @Autowired
+    public JwtAuthFilter(UserAuthProvider userAuthProvider) {
+        this.userAuthProvider = userAuthProvider;
+    }
 
     @Override
     protected void doFilterInternal(
         HttpServletRequest request,
         HttpServletResponse response,
         FilterChain filterChain) throws ServletException, IOException {
+
 
         String header = request.getHeader(HttpHeaders.AUTHORIZATION);
 
@@ -55,7 +54,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                     SecurityContextHolder.clearContext();
                     throw e;
                 }
-                
             }
         }
         filterChain.doFilter(request, response);
