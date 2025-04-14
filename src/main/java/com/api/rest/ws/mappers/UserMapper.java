@@ -13,7 +13,9 @@ public interface UserMapper {
 	
 	UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 	
-	UserDto toUserDto(User user);
+
+	UserDto toUserDto(User user); // De entidad a DTO
+    User toUser(UserDto userDto); // De DTO a entidad
 
 	@Mapping(target = "password",ignore =true)
 	User signUpToUser(SignUpDto userDto);
