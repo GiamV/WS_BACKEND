@@ -24,6 +24,10 @@ public class Docente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDocente;
 	
+private String nombre;
+	
+	private String apellido;
+	
 	private String dni;
 	
 	private String sexo;
@@ -33,11 +37,52 @@ public class Docente {
 	@JsonFormat(pattern = "yyyy-MM-dd")// Esto garantiza que se use este formato al serializar
 	private Date fechanac;
 	
+	private String fotoperfil;
+	
 	@ManyToOne
 	@JoinColumn(name="id")
 	User usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="idRol")
+	Rol rol;
+	
+	
 
 
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getFotoperfil() {
+		return fotoperfil;
+	}
+
+	public void setFotoperfil(String fotoperfil) {
+		this.fotoperfil = fotoperfil;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
 
 	public Long getIdDocente() {
 		return idDocente;

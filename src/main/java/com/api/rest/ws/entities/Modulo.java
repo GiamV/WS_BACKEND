@@ -63,9 +63,5 @@ public class Modulo {
 	public void setGrado(Grado grado) {
 		this.grado = grado;
 	}
-	
-	
-	
-	
 
 }
