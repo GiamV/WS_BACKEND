@@ -3,9 +3,12 @@ package com.api.rest.ws.entities;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,12 +20,12 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="docente")
-public class Docente {
+@Table(name="perfil")
+public class Perfil {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idDocente;
+    private Long idPerfil;
 	
 private String nombre;
 	
@@ -39,13 +42,18 @@ private String nombre;
 	
 	private String fotoperfil;
 	
-	@ManyToOne
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id")
 	User usuario;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idRol")
 	Rol rol;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idGrado")
+	Grado grado;
 	
 	
 
@@ -83,13 +91,25 @@ private String nombre;
 	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
+	
+	
 
-	public Long getIdDocente() {
-		return idDocente;
+
+
+	public Long getIdPerfil() {
+		return idPerfil;
 	}
 
-	public void setIdDocente(Long idDocente) {
-		this.idDocente = idDocente;
+	public void setIdPerfil(Long idPerfil) {
+		this.idPerfil = idPerfil;
+	}
+
+	public Grado getGrado() {
+		return grado;
+	}
+
+	public void setGrado(Grado grado) {
+		this.grado = grado;
 	}
 
 	public String getDni() {

@@ -20,8 +20,8 @@ public class Respuesta {
 	private Boolean es_correcta;
 	
 	@ManyToOne
-	@JoinColumn(name="idAlumno")
-	Alumno alumno;
+	@JoinColumn(name="idPerfil")
+	Perfil perfil;
 	
 	@ManyToOne
 	@JoinColumn(name="idActividad")
@@ -51,12 +51,13 @@ public class Respuesta {
 		this.es_correcta = es_correcta;
 	}
 
-	public Alumno getAlumno() {
-		return alumno;
+	
+	public Perfil getPerfil() {
+		return perfil;
 	}
 
-	public void setAlumno(Alumno alumno) {
-		this.alumno = alumno;
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	public Actividad getActividad() {

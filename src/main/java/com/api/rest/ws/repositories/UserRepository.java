@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.api.rest.ws.entities.Docente;
+import com.api.rest.ws.entities.Perfil;
 import com.api.rest.ws.entities.User;
 
 @Repository
@@ -18,3 +18,5 @@ public interface UserRepository extends JpaRepository <User,Long> {
 	
 
 }
+
+
