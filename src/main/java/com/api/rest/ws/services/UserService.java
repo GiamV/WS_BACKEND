@@ -1,6 +1,7 @@
 package com.api.rest.ws.services;
 
 import java.nio.CharBuffer;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.api.rest.ws.dao.IRolDao;
+import com.api.rest.ws.dao.IUserDao;
 import com.api.rest.ws.dto.CredentialsDto;
 import com.api.rest.ws.dto.SignUpDto;
 
 import com.api.rest.ws.dto.UserDto;
+import com.api.rest.ws.entities.Rol;
 import com.api.rest.ws.entities.User;
 import com.api.rest.ws.exceptions.AppException;
 import com.api.rest.ws.mappers.UserMapper;
@@ -21,7 +25,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class UserService implements IUserService {
+	
+	@Autowired
+	private IUserDao userDao;
 
 	@Autowired
     private  UserRepository userRepository;
@@ -69,6 +76,15 @@ public class UserService {
         return userRepository.findById(id)
                 .orElseThrow(() -> new AppException("Unknown user", HttpStatus.NOT_FOUND));
     }
+
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return (List<User>)userDao.findAll();
+	}
+    
+    
 
     
     

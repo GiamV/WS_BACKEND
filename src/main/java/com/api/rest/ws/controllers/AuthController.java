@@ -1,9 +1,11 @@
 package com.api.rest.ws.controllers;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +14,8 @@ import com.api.rest.ws.config.UserAuthProvider;
 import com.api.rest.ws.dto.CredentialsDto;
 import com.api.rest.ws.dto.SignUpDto;
 import com.api.rest.ws.dto.UserDto;
+import com.api.rest.ws.entities.Perfil;
+import com.api.rest.ws.entities.User;
 import com.api.rest.ws.services.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -44,5 +48,10 @@ public class AuthController {
         return ResponseEntity.created(URI.create("/users/" + user.getId()))
                 .body(user);
     }
+    
+    @GetMapping("/users")
+	public List<User> listar() {
+		return userService.findAll();
+	}
 }
 
