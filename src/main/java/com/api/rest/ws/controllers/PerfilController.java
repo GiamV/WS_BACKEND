@@ -103,6 +103,7 @@ public class PerfilController {
 		perfilActual.setSexo(perfil.getSexo());
 		perfilActual.setDni(perfil.getDni());
 		perfilActual.setFotoperfil(perfil.getFotoperfil());
+		perfilActual.setRol(perfil.getRol());
 		perfilService.savePerfil(perfilActual);
 		return perfilService.findById(id);
 	}
