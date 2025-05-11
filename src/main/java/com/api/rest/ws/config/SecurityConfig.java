@@ -29,23 +29,23 @@ this.userAuthenticationEntryPoint = userAuthenticationEntryPoint;
 this.userAuthProvider = userAuthProvider;
 }
 	
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.exceptionHandling()
-	    .authenticationEntryPoint(userAuthenticationEntryPoint)
-	    .and()
-	    .addFilterBefore(new JwtAuthFilter(userAuthProvider), BasicAuthenticationFilter.class)
-	    .csrf().disable()
-	    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-	    .and()
-	    .authorizeHttpRequests((requests) -> requests
-	        .requestMatchers(HttpMethod.POST, "/Login", "/register","/api/password/request","/api/password/reset").permitAll()
-	        .anyRequest().authenticated()
-	    );
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.exceptionHandling()
+            .authenticationEntryPoint(userAuthenticationEntryPoint)
+            .and()
+            .addFilterBefore(new JwtAuthFilter(userAuthProvider), BasicAuthenticationFilter.class)
+            .csrf().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+            .authorizeHttpRequests((requests) -> requests
+                .requestMatchers(HttpMethod.POST, "/Login", "/register", "/api/password/request", "/api/password/reset").permitAll()
+                .requestMatchers(HttpMethod.GET, "/perfil/correo").permitAll()  // Permitimos GET en /api/public/** para todos
+                .anyRequest().authenticated()  // El resto de las solicitudes requieren autenticación
+            );
 
-
-	    return http.build();
-	}
+        return http.build();
+    }
 
 
 }

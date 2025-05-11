@@ -47,6 +47,11 @@ public class PerfilController {
 	public List<Perfil> listar() {
 		return perfilService.findAll();
 	}
+	// LISTAR PERFILES
+		@GetMapping("/correo")
+		public List<Perfil> listarc() {
+			return perfilService.findAll();
+		}
 
 	// BUSCAR PERFIL POR ID
 	@GetMapping("/{id}")
