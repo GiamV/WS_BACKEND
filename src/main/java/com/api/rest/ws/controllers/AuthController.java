@@ -17,6 +17,7 @@ import com.api.rest.ws.dto.UserDto;
 import com.api.rest.ws.entities.Perfil;
 import com.api.rest.ws.entities.User;
 import com.api.rest.ws.services.UserService;
+import com.api.rest.ws.services.UserServiceR;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,12 +28,14 @@ public class AuthController {
 	
 
     private final UserService userService;
+    private final UserServiceR userServiceR;
     private final UserAuthProvider userAuthProvider;
 
 
-    public AuthController(UserService userService, UserAuthProvider userAuthProvider) {
+    public AuthController(UserService userService, UserAuthProvider userAuthProvider,UserServiceR userServiceR ) {
         this.userService = userService;
-        this.userAuthProvider = userAuthProvider;}
+        this.userAuthProvider = userAuthProvider;
+        this.userServiceR = userServiceR;}
         
 
     @PostMapping("/Login")
@@ -52,6 +55,11 @@ public class AuthController {
     @GetMapping("/users")
 	public List<User> listar() {
 		return userService.findAll();
+	}
+    
+    @GetMapping("/usersperfil")
+	public List<User> filtrop() {
+		return userServiceR.findByUP();
 	}
 }
 

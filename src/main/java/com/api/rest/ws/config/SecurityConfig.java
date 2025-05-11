@@ -39,7 +39,7 @@ this.userAuthProvider = userAuthProvider;
 	    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	    .and()
 	    .authorizeHttpRequests((requests) -> requests
-	        .requestMatchers(HttpMethod.POST, "/Login", "/register").permitAll()
+	        .requestMatchers(HttpMethod.POST, "/Login", "/register","/api/password/request","/api/password/reset").permitAll()
 	        .anyRequest().authenticated()
 	    );
 
