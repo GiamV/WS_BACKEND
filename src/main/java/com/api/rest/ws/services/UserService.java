@@ -83,6 +83,27 @@ public class UserService implements IUserService {
 		// TODO Auto-generated method stub
 		return (List<User>)userDao.findAll();
 	}
+
+
+	@Override
+	public void saveUser(User user) {
+		userDao.save(user);
+		
+	}
+
+
+	@Override
+	public User editarUser(Long id) {
+		// TODO Auto-generated method stub
+		return userDao.findById(id).orElse(null);
+	}
+	
+	
+	
+	
+
+
+	
     
     
 
