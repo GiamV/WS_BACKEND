@@ -3,12 +3,15 @@ package com.api.rest.ws.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.api.rest.ws.dao.IActividadDao;
 import com.api.rest.ws.dao.IPerfilDao;
 import com.api.rest.ws.entities.Actividad;
 import com.api.rest.ws.entities.Perfil;
 
+
+@Service
 public class ActividadServiceImpl implements IActividadService {
 
 	@Autowired

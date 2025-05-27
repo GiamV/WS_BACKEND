@@ -3,10 +3,12 @@ package com.api.rest.ws.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.api.rest.ws.dao.IGradoDao;
 import com.api.rest.ws.entities.Grado;
 
+@Service
 public class GradoServiceImpl implements IGradoService {
 	
 	@Autowired
