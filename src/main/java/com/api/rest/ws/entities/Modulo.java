@@ -1,5 +1,6 @@
 package com.api.rest.ws.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Modulo {
 	 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_modulo")
     private Long idModulo;
 	
 	private String modulo;
@@ -21,7 +23,7 @@ public class Modulo {
 	private int orden;
 	
 	@ManyToOne
-	@JoinColumn(name="idGrado")
+	@JoinColumn(name="id_grado")
 	Grado grado;
 
 	public Long getIdModulo() {

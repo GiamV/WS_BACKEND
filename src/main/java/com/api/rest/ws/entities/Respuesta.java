@@ -1,5 +1,6 @@
 package com.api.rest.ws.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,17 +15,18 @@ public class Respuesta {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_respuesta")
     private Long idRespuesta;
 	
 	private String respuesta;
 	private Boolean es_correcta;
 	
 	@ManyToOne
-	@JoinColumn(name="idPerfil")
+	@JoinColumn(name="id_perfil")
 	Perfil perfil;
 	
 	@ManyToOne
-	@JoinColumn(name="idActividad")
+	@JoinColumn(name="id_actividad")
 	Actividad actividad;
 
 	public Long getIdRespuesta() {

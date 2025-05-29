@@ -1,6 +1,7 @@
 package com.api.rest.ws.entities;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Grado {
 	private static final long serialVersionUID=1L;	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_grado")
     private Long idGrado;
 	
 	private String grado;

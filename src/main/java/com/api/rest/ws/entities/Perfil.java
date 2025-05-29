@@ -25,6 +25,7 @@ public class Perfil {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_perfil")
     private Long idPerfil;
 	
 private String nombre;
@@ -48,11 +49,11 @@ private String nombre;
 	User usuario;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="idRol")
+	@JoinColumn(name="id_rol")
 	Rol rol;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="idGrado")
+	@JoinColumn(name="id_grado")
 	Grado grado;
 	
 	

@@ -21,6 +21,7 @@ public class Progreso_Alumno {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_progreso")
     private Long idProgreso;
 	
 	private boolean completado;
@@ -31,11 +32,11 @@ public class Progreso_Alumno {
 	private Date fechacom;
 	
 	@ManyToOne
-	@JoinColumn(name="idModulo")
+	@JoinColumn(name="id_modulo")
 	Modulo modulo;
 	
 	@ManyToOne
-	@JoinColumn(name="idPerfil")
+	@JoinColumn(name="id_perfil")
 	Perfil perfil;
 
 	public Long getIdProgreso() {

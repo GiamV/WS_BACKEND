@@ -1,5 +1,6 @@
 package com.api.rest.ws.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +15,14 @@ public class Actividad {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_actividad")
     private Long idActividad;
 	
 	private String titulo;
 	private String descripcion;
 	private int tipo;
 	@ManyToOne
-	@JoinColumn(name="idModulo")
+	@JoinColumn(name="id_modulo")
 	Modulo modulo;
 	public Long getIdActividad() {
 		return idActividad;
