@@ -29,6 +29,14 @@ public class User {
     @Column(nullable = false)
     private String password;
     
+    public User() {} // ¡Mantén esto!
+
+    public User(Long id, String login, String password) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+    }
+    
     
 
 	public Long getId() {
