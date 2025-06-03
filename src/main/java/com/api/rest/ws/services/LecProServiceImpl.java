@@ -9,6 +9,8 @@ import com.api.rest.ws.dao.IActividadDao;
 import com.api.rest.ws.dao.IProLecDao;
 import com.api.rest.ws.entities.Actividad;
 import com.api.rest.ws.entities.Progreso_Leccion;
+import com.api.rest.ws.repositories.IProLecRepository;
+
 
 @Service
 public class LecProServiceImpl implements IProLecService {
@@ -16,6 +18,8 @@ public class LecProServiceImpl implements IProLecService {
 	
 	@Autowired
 	private IProLecDao prolecDao;
+	@Autowired
+	private IProLecRepository prolecSQL;
 	
 	
 	@Override
@@ -46,5 +50,7 @@ public class LecProServiceImpl implements IProLecService {
 	public Progreso_Leccion findById(Long id) {
 		return prolecDao.findById(id).orElse(null);
 	}
+	
+	
 
 }

@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ComponentScan("com.api.rest.ws")
-@EnableJpaRepositories("com.api.rest.ws.repositories")
 @SpringBootApplication
 public class ApiRestWsApplication {
 

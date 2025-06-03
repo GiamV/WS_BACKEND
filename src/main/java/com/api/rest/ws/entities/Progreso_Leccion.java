@@ -23,7 +23,7 @@ public class Progreso_Leccion {
 	@JoinColumn(name="idPerfil")
 	Perfil perfil;
 	
-	private boolean completado;
+	private Boolean completado;
 	
 	
 	public Long getIdProgreso_Lec() {
@@ -44,12 +44,20 @@ public class Progreso_Leccion {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-	public boolean isCompletado() {
+	public Boolean getCompletado() {
 		return completado;
 	}
-	public void setCompletado(boolean completado) {
+	public void setCompletado(Boolean completado) {
 		this.completado = completado;
 	}
+	
+	
+	
+	
+
+	
+	
+
 	
 	
 	
