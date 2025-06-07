@@ -15,7 +15,7 @@ public class PerfilServiceR {
 	
 	public Perfil findByU(Long ida) {
 		return perfilRepository.findByUser (ida);
-	}
+	} 
 	
 	
 	

@@ -10,6 +10,8 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="grado")
 public class Grado {
+
+	
 	
 	private static final long serialVersionUID=1L;	
 	@Id
@@ -37,10 +39,5 @@ public class Grado {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
-	
-	
 
 }

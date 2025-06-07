@@ -5,12 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pregunta")
-public class Pregunta {
+@Table(name = "enunciado")
+public class Enunciado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPregunta;
+    private Long idEnunciado;
 
     private String enunciado;
 
@@ -34,13 +34,17 @@ public class Pregunta {
         return enunciado;
     }
 
-    public Long getIdPregunta() {
-		return idPregunta;
+	public Long getIdEnunciado() {
+		return idEnunciado;
 	}
 
-	public void setIdPregunta(Long idPregunta) {
-		this.idPregunta = idPregunta;
+
+
+	public void setIdEnunciado(Long idEnunciado) {
+		this.idEnunciado = idEnunciado;
 	}
+
+
 
 	public void setEnunciado(String enunciado) {
         this.enunciado = enunciado;

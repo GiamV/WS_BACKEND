@@ -16,8 +16,8 @@ public class RespuestaUsuario {
 	Perfil perfil;
 	
 	@ManyToOne
-	@JoinColumn(name="idPregunta")
-	Pregunta pregunta;
+	@JoinColumn(name="idEnunciado")
+	Enunciado pregunta;
 
     @Column(name = "respuesta_texto")
     private String respuestaTexto;
@@ -48,11 +48,11 @@ public class RespuestaUsuario {
 		this.perfil = perfil;
 	}
 
-	public Pregunta getPregunta() {
+	public Enunciado getPregunta() {
 		return pregunta;
 	}
 
-	public void setPregunta(Pregunta pregunta) {
+	public void setPregunta(Enunciado pregunta) {
 		this.pregunta = pregunta;
 	}
 

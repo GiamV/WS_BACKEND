@@ -37,7 +37,7 @@ private String nombre;
 	
 	@Column(name="fecha_nac")
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern = "yyyy-MM-dd")// Esto garantiza que se use este formato al serializar
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date fechanac;
 	
 	private String fotoperfil;
