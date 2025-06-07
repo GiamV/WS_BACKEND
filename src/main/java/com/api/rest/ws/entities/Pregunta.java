@@ -1,5 +1,7 @@
 package com.api.rest.ws.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -20,13 +22,13 @@ public class Pregunta {
 
     private int orden;
 
-    @ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idActividad")
 	Actividad actividad;
 
     // Getters y Setters
-    
-    
+
 
     public String getEnunciado() {
         return enunciado;

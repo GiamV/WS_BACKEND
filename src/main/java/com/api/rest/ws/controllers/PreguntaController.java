@@ -5,13 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.api.rest.ws.entities.Pregunta;
 import com.api.rest.ws.services.IPreguntaService;
+import com.api.rest.ws.servicesR.PreguntaServiceR;
 
 @RestController
-@RequestMapping("/api/preguntas")
+@RequestMapping("/pregunta")
 public class PreguntaController {
 
     @Autowired
     private IPreguntaService preguntaService;
+    
+    @Autowired
+    private PreguntaServiceR preguntaR;
 
     @GetMapping
     public List<Pregunta> listar() {
@@ -50,4 +54,13 @@ public class PreguntaController {
     public void eliminar(@PathVariable Long id) {
         preguntaService.eliminar(id);
     }
+    
+    @GetMapping("/por-actividad")
+    public List<Pregunta>obtenerPreguntas(@RequestParam("actividadId") Long actividadId) {
+        
+    	return preguntaR.obtener_preguntas_por_actividad(actividadId);
+
+    }
+    
+
 }
