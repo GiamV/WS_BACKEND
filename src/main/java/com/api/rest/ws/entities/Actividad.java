@@ -22,6 +22,10 @@ public class Actividad {
 	@ManyToOne
 	@JoinColumn(name="idModulo")
 	Modulo modulo;
+	
+	private String img;
+	
+	
 	public Long getIdActividad() {
 		return idActividad;
 	}
@@ -52,6 +56,14 @@ public class Actividad {
 	public void setModulo(Modulo modulo) {
 		this.modulo = modulo;
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
+	
 	
 	
 	

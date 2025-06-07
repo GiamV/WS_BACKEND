@@ -24,6 +24,8 @@ public class Leccion {
 	@ManyToOne
 	@JoinColumn(name="idModulo")
 	Modulo modulo;
+	
+	private String img;
 
 	
 	
@@ -64,6 +66,16 @@ public class Leccion {
 	public void setModulo(Modulo modulo) {
 		this.modulo = modulo;
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
+	
+	
+	
 	
 	
 	

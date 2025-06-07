@@ -19,5 +19,6 @@ public List<Progreso_Leccion> findAll();
 	public void eliminarProLec(Long id);
 	
 	public Progreso_Leccion findById(Long id);
+	
 
 }

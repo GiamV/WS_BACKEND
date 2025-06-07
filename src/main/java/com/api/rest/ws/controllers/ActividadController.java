@@ -56,6 +56,7 @@ public class ActividadController {
 			actividadActual.setTipo(actividad.getTipo());
 			actividadActual.setTitulo(actividad.getTitulo());
 			actividadActual.setModulo(actividad.getModulo());
+			actividadActual.setImg(actividad.getImg());
 			actividadService.saveActividad(actividadActual);
 			return actividadService .findById(id);
 				

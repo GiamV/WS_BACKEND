@@ -59,6 +59,7 @@ public class LeccionController {
 			leccionActual.setLeccion(Leccion.getLeccion());
 			leccionActual.setTipo(Leccion.getTipo());
 			leccionActual.setModulo(Leccion.getModulo());
+			leccionActual.setImg(Leccion.getImg());
 			leccionService.saveLeccion(leccionActual);
 				return leccionService .findById(id);
 					
