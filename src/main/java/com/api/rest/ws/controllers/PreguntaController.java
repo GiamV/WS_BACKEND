@@ -55,8 +55,8 @@ public class PreguntaController {
         preguntaService.eliminar(id);
     }
     
-    @GetMapping("/por-actividad")
-    public List<Pregunta>obtenerPreguntas(@RequestParam("actividadId") Long actividadId) {
+    @GetMapping("/por-actividad/{actividadId}")
+    public List<Pregunta>obtenerPreguntas(@PathVariable Long actividadId) {
         
     	return preguntaR.obtener_preguntas_por_actividad(actividadId);
 

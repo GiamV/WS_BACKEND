@@ -4,14 +4,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import com.api.rest.ws.entities.Opcion;
 import com.api.rest.ws.services.IOpcionService;
+import com.api.rest.ws.servicesR.OpcionServiceR;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-@RequestMapping("/api/opciones")
+@RequestMapping("/opcion")
 public class OpcionController {
 
     @Autowired
     private IOpcionService opcionService;
+    
+    @Autowired
+    private OpcionServiceR opcionServiceR;
 
     @GetMapping
     public List<Opcion> listar() {
@@ -48,4 +53,10 @@ public class OpcionController {
     public void eliminar(@PathVariable Long id) {
         opcionService.eliminar(id);
     }
+    
+    @GetMapping("por-pregunta/{preguntaId}")
+    public List<Opcion> listarOpciones(@PathVariable Long preguntaId) {
+        return opcionServiceR.obtener_opciones(preguntaId);
+    }
+    
 }

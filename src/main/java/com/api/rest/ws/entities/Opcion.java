@@ -1,5 +1,7 @@
 package com.api.rest.ws.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -10,7 +12,8 @@ public class Opcion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idOpcion;
 
-	@ManyToOne
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="idPregunta")
 	Pregunta pregunta;
 
