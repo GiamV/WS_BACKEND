@@ -38,7 +38,7 @@ public class OpcionController {
         Opcion actual = opcionService.findById(id);
 
         if (actual != null) {
-            actual.setPregunta(opcion.getPregunta());
+            actual.setPreguntaw(opcion.getPreguntaw());
             actual.setTextoOpcion(opcion.getTextoOpcion());
             actual.setEsCorrecta(opcion.getEsCorrecta());
 

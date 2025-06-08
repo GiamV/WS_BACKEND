@@ -14,8 +14,8 @@ public class Opcion {
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="idPregunta")
-	Enunciado pregunta;
+	@JoinColumn(name="id_Preguntas")
+	Preguntas preguntaw;
 
     @Column(name = "texto_opcion")
     private String textoOpcion;
@@ -33,12 +33,15 @@ public class Opcion {
 	}
 	
 
-	public Enunciado getPregunta() {
-		return pregunta;
+
+	
+
+	public Preguntas getPreguntaw() {
+		return preguntaw;
 	}
 
-	public void setPregunta(Enunciado pregunta) {
-		this.pregunta = pregunta;
+	public void setPreguntaw(Preguntas preguntaw) {
+		this.preguntaw = preguntaw;
 	}
 
 	public String getTextoOpcion() {

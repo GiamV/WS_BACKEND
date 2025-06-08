@@ -12,6 +12,9 @@ public class Enunciado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEnunciado;
 
+    
+    @Lob // 👈 Esto es CLAVE para usar TEXT o LONGTEXT en la base de datos
+    @Column(columnDefinition = "TEXT") // o "LONGTEXT" si lo necesitas
     private String enunciado;
 
     @Column(name = "tipo_pregunta")
