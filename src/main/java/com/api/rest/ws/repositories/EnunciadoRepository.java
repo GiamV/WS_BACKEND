@@ -57,8 +57,7 @@ public class EnunciadoRepository {
 	                    Long idPregunta = ((Number) row[3]).longValue();
 	                    OpcionDTO opcion = new OpcionDTO();
 	                    opcion.setTextoOpcion((String) row[1]);
-	                    opcion.setEsCorrecta(((Number) row[2]).intValue() == 1);
-
+	                    opcion.setEsCorrecta(Boolean.TRUE.equals(row[2])); // ✅ más seguro para Boolean o bit
 	                    if (preguntasMap.containsKey(idPregunta)) {
 	                        preguntasMap.get(idPregunta).getOpciones().add(opcion);
 	                    }
