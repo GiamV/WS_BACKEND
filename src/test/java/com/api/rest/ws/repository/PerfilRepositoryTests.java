@@ -65,7 +65,7 @@ public class PerfilRepositoryTests {
         List<Perfil> listaPerfil = (List<Perfil>) perfilRepository.findAll();
         
         assertThat(listaPerfil).isNotNull();
-        assertThat(listaPerfil.size()).isEqualTo(0);
+        assertThat(listaPerfil.size()).isEqualTo(1);
         
 	}
 

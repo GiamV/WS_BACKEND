@@ -3,8 +3,12 @@ package com.api.rest.ws.controllers;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+import com.api.rest.ws.entities.Opcion;
 import com.api.rest.ws.entities.Progreso_Actividad;
 import com.api.rest.ws.services.IProgresoActividadService;
+import com.api.rest.ws.servicesR.OpcionServiceR;
+import com.api.rest.ws.servicesR.ProActServiceR;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
@@ -13,6 +17,9 @@ public class ProgresoActividadController {
 
     @Autowired
     private IProgresoActividadService progresoService;
+    
+    @Autowired
+    private ProActServiceR proactServiceR;
 
     @GetMapping
     public List<Progreso_Actividad> listar() {
@@ -44,5 +51,10 @@ public class ProgresoActividadController {
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable Long id) {
         progresoService.eliminar(id);
+    }
+    
+    @GetMapping("por-perfil/{p_id_perfil}")
+    public List<Progreso_Actividad> listaractividadesp(@PathVariable Long p_id_perfil) {
+        return proactServiceR.pro_actividad(p_id_perfil);
     }
 }
