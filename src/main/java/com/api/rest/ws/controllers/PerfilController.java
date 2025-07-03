@@ -21,9 +21,11 @@ import com.api.rest.ws.entities.Perfil;
 import com.api.rest.ws.entities.Rol;
 import com.api.rest.ws.entities.User;
 import com.api.rest.ws.services.IPerfilService;
+import com.api.rest.ws.services.IProgresoActividadService;
 import com.api.rest.ws.services.IRolService;
 import com.api.rest.ws.services.PerfilServiceR;
 import com.api.rest.ws.services.UserService;
+import com.api.rest.ws.servicesR.ProActServiceR;
 
 
 
@@ -41,6 +43,13 @@ public class PerfilController {
 	private IPerfilService perfilService;
 	@Autowired
 	private IRolService rolService;
+	
+	
+	@Autowired
+    private IProgresoActividadService progresoService;
+    
+    @Autowired
+    private ProActServiceR proactServiceR;
 
 	// LISTAR PERFILES
 	@GetMapping("/")
@@ -80,22 +89,26 @@ public class PerfilController {
 		return Dto;
 	}
 
-	@Transactional
-	// CREAR UN NUEVO PERFIL
 	@PostMapping("/nuevo")
+	@Transactional
 	public Perfil nuevoPerfil(@RequestBody Perfil perfil) {
-		
-		Rol rol = rolService.findById(Long.valueOf(perfil.getRol().getIdRol() ));
-		User user = userService.findById(Long.valueOf(perfil.getUsuario().getId()));
-		
-		perfil.setRol(rol);
-		perfil.setUsuario(user);
-		
-		
-		perfilService.savePerfil(perfil);
 
-		// Devolver el perfil con el usuario asignado
-		return perfilService.findById(perfil.getIdPerfil());
+	    // Obtener y asignar rol y usuario
+	    Rol rol = rolService.findById(Long.valueOf(perfil.getRol().getIdRol()));
+	    User user = userService.findById(Long.valueOf(perfil.getUsuario().getId()));
+	    perfil.setRol(rol);
+	    perfil.setUsuario(user);
+
+	    // Guardar el perfil
+	    perfilService.savePerfil(perfil);
+
+	    // Si el rol es 2 (estudiante), registrar su progreso automáticamente
+	    if (rol.getIdRol() == 2) {
+	    	proactServiceR.registrarProgresoPorPerfil(perfil.getIdPerfil());
+	    }
+
+	    // Retornar el perfil guardado
+	    return perfilService.findById(perfil.getIdPerfil());
 	}
 
 	// ACTUALIZAR PERFIL

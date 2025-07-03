@@ -57,4 +57,14 @@ public class ProgresoActividadController {
     public List<Progreso_Actividad> listaractividadesp(@PathVariable Long p_id_perfil) {
         return proactServiceR.pro_actividad(p_id_perfil);
     }
+    
+    @PutMapping("pro-act-est/{id}")
+    public Progreso_Actividad actualizarestado(@PathVariable Long id) {
+        Progreso_Actividad actual = progresoService.findById(id);
+        if (actual != null) {
+            actual.setCompletado(true);
+            progresoService.save(actual);
+        }
+        return actual;
+    }
 }

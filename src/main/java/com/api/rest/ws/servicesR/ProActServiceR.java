@@ -19,6 +19,9 @@ public class ProActServiceR {
 	public List<Progreso_Actividad> pro_actividad(Long perfilId) {
         return proactSQL.pro_actividad(perfilId);
     }
+	public void registrarProgresoPorPerfil(Long perfilId) {
+		proactSQL.registrarProgresoActividades(perfilId);
+    }
 	
 
 }
