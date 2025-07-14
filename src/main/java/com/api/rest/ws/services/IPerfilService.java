@@ -10,7 +10,7 @@ public interface IPerfilService {
 	public List<Perfil> findAll();
 	
 	//CREAR METODO PARA AGREGAR:
-	public void savePerfil(Perfil perfil);
+	public Perfil savePerfil(Perfil perfil);
 	
 	//CREAR METODO PARA EDITAR:
 	public Perfil editarPerfil(Long id);

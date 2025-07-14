@@ -100,7 +100,7 @@ public class PerfilController {
 	    perfil.setUsuario(user);
 
 	    // Guardar el perfil
-	    perfilService.savePerfil(perfil);
+	    Perfil perfilGuardado = perfilService.savePerfil(perfil);
 
 	    // Si el rol es 2 (estudiante), registrar su progreso automáticamente
 	    if (rol.getIdRol() == 2) {

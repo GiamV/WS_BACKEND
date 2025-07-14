@@ -25,8 +25,8 @@ public class PerfilServiceImpl implements IPerfilService {
 	}
 
 	@Override
-	public void savePerfil(Perfil perfil) {
-		docenteDao.save(perfil);
+	public Perfil savePerfil(Perfil perfil) {
+		return docenteDao.save(perfil);
 		
 	}
 
